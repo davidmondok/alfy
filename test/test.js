@@ -30,5 +30,7 @@ test('.matches()', t => {
 
 test('.inputMatches()', t => {
 	t.deepEqual(alfyInstance.inputMatches(['foo', 'unicorn']), ['unicorn']);
-	t.deepEqual(alfyInstance.inputMatches(['föö', 'ünicörn']), ['ünicörn']);
+	alfyInstance.input = 'Ünicörn';
+	t.deepEqual(alfyInstance.inputMatches(['foo', 'unicorn']), []);
+	t.deepEqual(alfyInstance.inputMatches(['foo', 'ünicörn']), ['ünicörn']);
 });
